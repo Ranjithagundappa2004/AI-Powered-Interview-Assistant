@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+🧑‍💻 AI-Powered Interview Assistant
+<p align="center"> <img src="https://img.shields.io/github/stars/Ranjithagundappa2004/AI-Powered-Interview-Assistant?style=social" alt="GitHub Stars" /> <img src="https://img.shields.io/github/forks/Ranjithagundappa2004/AI-Powered-Interview-Assistant?style=social" alt="GitHub Forks" /> <img src="https://img.shields.io/github/license/Ranjithagundappa2004/AI-Powered-Interview-Assistant" alt="License" /> <img src="https://img.shields.io/badge/Build-Passing-brightgreen" alt="Build Status" /> <a href="https://ai-powered-interview-assistant-ldc7.vercel.app/"> <img src="https://img.shields.io/badge/Live%20Demo-Vercel-blue?logo=vercel" alt="Live Demo" /> </a> </p> <p align="center"> <img src="https://img.shields.io/badge/React-18-blue?logo=react" /> <img src="https://img.shields.io/badge/Redux-State%20Management-purple?logo=redux" /> <img src="https://img.shields.io/badge/OpenAI-API-orange?logo=openai" /> <img src="https://img.shields.io/badge/UI-Ant%20Design%20%7C%20Shadcn-lightgrey" /> </p>
+📌 Project Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An AI-powered interview assistant built with React to simplify the interview process for both candidates and interviewers.
 
-## Available Scripts
+It allows candidates to upload resumes, engage in AI-driven timed interviews, and provides interviewers with a detailed dashboard of results.
 
-In the project directory, you can run:
+🚀 Features
+👤 Interviewee (Candidate)
 
-### `npm start`
+Upload resume (PDF/DOCX).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Extracts Name, Email, Phone automatically.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Missing details are requested before the interview begins.
 
-### `npm test`
+AI-powered timed interview:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2 Easy → 2 Medium → 2 Hard questions.
 
-### `npm run build`
+Timers: Easy (20s), Medium (60s), Hard (120s).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Auto-submission when time expires.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+AI-generated score & summary.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+👨‍💼 Interviewer (Dashboard)
 
-### `npm run eject`
+View candidate list ranked by score.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Access detailed candidate profiles (resume data, chat history, questions, answers, and scores).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Search & Sort support for easy navigation.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+💾 Data Persistence
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Local storage ensures data (timers, answers, progress) is saved.
 
-## Learn More
+Supports pause/resume with a “Welcome Back” modal.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+🛠️ Tech Stack
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Frontend: React
 
-### Code Splitting
+State Management: Redux + redux-persist / IndexedDB
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+UI Libraries: Ant Design / shadcn
 
-### Analyzing the Bundle Size
+AI Integration: OpenAI API (for Q&A generation + evaluation)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Resume Parsing: pdfjs-dist, mammoth
 
-### Making a Progressive Web App
+📂 Project Structure
+├── src/
+│   ├── components/       # Reusable UI components
+│   ├── pages/            # Tabs (Interviewee, Interviewer)
+│   ├── utils/            # Resume parsing & helpers
+│   ├── store/            # Redux store, reducers, persistence
+│   └── App.js            # Root app component
+├── public/
+├── package.json
+└── README.md
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+⚙️ Installation & Setup
 
-### Advanced Configuration
+Clone the repo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+git clone https://github.com/Ranjithagundappa2004/AI-Powered-Interview-Assistant.git
+cd AI-Powered-Interview-Assistant
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Install dependencies
 
-### `npm run build` fails to minify
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Run locally
+
+npm start
+
+
+Runs on: http://localhost:3000
+
+Build for production
+
+npm run build
+
+🌐 Deployment
+
+This project is live on Vercel 🚀
+
+🔗 Live Demo: AI-Powered Interview Assistant
+
+🎥 Demo
+
+GitHub Repo: AI-Powered Interview Assistant Repo
+
+Live Demo: Click Here
+
+
+
+📄 License
+
+This project is licensed under the MIT License.
