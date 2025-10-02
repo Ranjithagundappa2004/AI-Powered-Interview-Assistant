@@ -1,9 +1,4 @@
-/* QuestionsAnswered.css
-   Clean, modern styling for the QuestionsAnswered review page.
-   Drop into src/ and import from QuestionsAnswered.js
-*/
-
-:root{
+:root {
   --bg: #ffffff;
   --muted: #6b7280;
   --accent: #5b8cff;
@@ -29,8 +24,8 @@
   color: #111827;
 }
 
-/* Header row */
-.questions-answered > div:first-child {
+/* Header */
+.questions-answered > .qa-header {
   display: flex;
   gap: 12px;
   align-items: center;
@@ -45,19 +40,9 @@
   color: #0f172a;
 }
 
+/* Buttons */
 .questions-answered button {
   cursor: pointer;
-}
-
-/* Action buttons in header */
-.questions-answered .header-actions {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-/* Standard buttons */
-.btn {
   padding: 8px 12px;
   border-radius: 10px;
   border: 1px solid var(--card-border);
@@ -66,22 +51,23 @@
   font-size: 0.95rem;
 }
 
-.btn:active { transform: translateY(1px); }
+.questions-answered button:active {
+  transform: translateY(1px);
+}
 
-/* Primary / Copy */
-.btn-primary {
+.questions-answered .btn-primary {
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
   color: white;
   border: none;
 }
 
-.btn-secondary {
+.questions-answered .btn-secondary {
   background: #fff;
   color: var(--accent);
-  border: 1px solid rgba(91,140,255,0.18);
+  border: 1px solid rgba(91, 140, 255, 0.18);
 }
 
-/* Question card */
+/* Question Card */
 .qa-card {
   margin-top: 14px;
   border-radius: var(--radius);
@@ -117,11 +103,10 @@
   font-size: 0.88rem;
 }
 
-/* Answer area */
+/* Answers */
 .qa-answers {
   margin-top: 10px;
   display: grid;
-  grid-template-columns: 1fr;
   gap: 8px;
 }
 
@@ -136,7 +121,7 @@
   border: 1px solid #f0f2f6;
 }
 
-.answer-left { display:flex; gap:10px; align-items:center; }
+.answer-left { display: flex; gap: 10px; align-items: center; }
 
 .answer-badge {
   min-width: 36px;
@@ -151,9 +136,8 @@
   border: 1px solid #eef6ff;
 }
 
-/* Selected / Correct / Wrong labels */
+/* Correct/Wrong Status */
 .answer-status {
-  display: inline-block;
   padding: 6px 10px;
   border-radius: 999px;
   font-size: 0.8rem;
@@ -172,7 +156,7 @@
   border: 1px solid rgba(239,68,68,0.08);
 }
 
-/* Solution box */
+/* Solution */
 .solution-box {
   margin-top: 10px;
   padding: 12px;
@@ -182,13 +166,7 @@
   color: #0f172a;
 }
 
-/* Small muted text */
-.small-muted {
-  color: var(--muted);
-  font-size: 0.86rem;
-}
-
-/* Utility layout for bottom area inside a card */
+/* Footer inside card */
 .qa-bottom {
   display: flex;
   justify-content: space-between;
@@ -198,7 +176,7 @@
   flex-wrap: wrap;
 }
 
-/* Time badge */
+/* Time Badge */
 .time-badge {
   background: #fff;
   color: var(--muted);
@@ -215,11 +193,4 @@
   .qa-meta { text-align: left; min-width: auto; margin-top: 8px; }
   .qa-top { flex-direction: column; align-items: stretch; }
   .qa-bottom { flex-direction: column; align-items: stretch; gap: 8px; }
-}
-
-/* Last small tweaks */
-.questions-answered .extracted-details p {
-  margin: 6px 0;
-  color: #0b1220;
-  font-weight: 600;
 }

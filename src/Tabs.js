@@ -13,7 +13,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
   `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
 
 function Tabs() {
-  const [activeTab, setActiveTab] = useState("interviewee");
+  const [activeTab, setActiveTab] = useState("interviewer");
   const [candidate, setCandidate] = useState(null);
   const [stage, setStage] = useState("upload");
   const [results, setResults] = useState([]);
@@ -248,27 +248,28 @@ function Tabs() {
   };
 
   const onQuizFinish = (quizData) => {
-    const newRecord = {
-      id: Date.now(),
-      name: candidate?.name || "",
-      email: candidate?.email || "",
-      phone: candidate?.phone || "",
-      score: quizData.score,
-      total: quizData.total,
-      attempted: quizData.detailed.filter((d) => d.selectedIndex !== null).length,
-      correct: quizData.detailed.filter((d) => d.correct).length,
-      detailed: quizData.detailed,
-      date: new Date().toLocaleString(),
-    };
-
-    const updated = [...results, newRecord];
-    setResults(updated);
-    localStorage.setItem("quizResults", JSON.stringify(updated));
-
-    setStage("uploadedDone");
-    setActiveTab("interviewee");
-    setShowOnlyMine(true);
+  const newRecord = {
+    id: Date.now(),
+    name: candidate?.name || "",
+    email: candidate?.email || "",
+    phone: candidate?.phone || "",
+    score: quizData.score,
+    total: quizData.total,
+    attempted: quizData.detailed.filter((d) => d.selectedIndex !== null).length,
+    correct: quizData.detailed.filter((d) => d.correct).length,
+    detailed: quizData.detailed,
+    date: new Date().toLocaleString(),
   };
+
+  const updated = [...results, newRecord];
+  setResults(updated);
+  localStorage.setItem("quizResults", JSON.stringify(updated));
+
+  // Instead of switching to interviewee → just show score
+  setStage("quizFinished");
+  setViewingRecord(newRecord); // keep the last record handy
+};
+
 
   const handleViewRecord = (record) => {
     setViewingRecord(record);
@@ -350,16 +351,16 @@ function Tabs() {
                     borderRadius: 8,
                     marginBottom: 12
                   }}>
-                    <h4 style={{ margin: 0, color: "#b91c1c" }}>Sorry — you already took this test</h4>
+                    <h4 style={{ margin: 0, color: "#b91c1c", fontFamily: "'Poppins', sans-serif" }}>Sorry — you already took this test</h4>
                     <p style={{ marginTop: 8 }}>
                       We found a previous submission with your email <strong>{existingRecord.email}</strong>.
                       You scored <strong>{existingRecord.score} / {existingRecord.total}</strong> on {existingRecord.date}.
                     </p>
                     <div style={{ display: "flex", gap: 8 }}>
-                      <button onClick={handleQuitAfterAlready} style={{ padding: "8px 12px" }}>
+                      <button onClick={handleQuitAfterAlready} style={{ padding: "8px 12px", borderRadius:"1rem",border:"none", background:"#d9b0b0ff", padding:"1rem" }}>
                         Quit
                       </button>
-                      <button onClick={() => { setViewingRecord(existingRecord); setAlreadyAttended(false); }}>
+                      <button onClick={() => { setViewingRecord(existingRecord); setAlreadyAttended(false); }} style={{borderRadius:"1rem",border:"none", background:"#d9b0b0ff", padding:"1rem"}}>
                         View My Result
                       </button>
                     </div>
@@ -390,8 +391,8 @@ function Tabs() {
                       <p><strong>Phone:</strong> {candidate.phone}</p>
                     </div>
                     <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
-                      <button className="continue-btn" onClick={handleContinue}>
-                        ✅ Continue to Interview
+                      <button className="continue-btn" onClick={handleContinue} >
+                        Continue to Interview
                       </button>
                       <button onClick={() => {
                         setCandidate(null);
@@ -401,7 +402,7 @@ function Tabs() {
                         setCurrentStep("");
                         setBotThinking(false);
                         setStage("upload");
-                      }}>
+                      }} style={{ border:"none", borderRadius:"0.8rem", width:"10vw", background:"#cbcaca84", color:"black", padding:"0.5rem" }}>
                         Cancel
                       </button>
                     </div>
@@ -425,7 +426,7 @@ function Tabs() {
         {activeTab === "interviewee" && (
           <div className="content-box">
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <h2>📊 Interviewee Results</h2>
+              <h2>Interviewee Results</h2>
               <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
                 {showOnlyMine && (
                   <div style={{ fontSize: 13, color: "#374151" }}>
@@ -444,12 +445,12 @@ function Tabs() {
                 placeholder="🔍 Search by name or email"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                style={{ padding: "8px", borderRadius: "5px", width: "60%" }}
+                style={{ padding: "1rem", borderRadius: "1rem", width: "30%",border:"none",background:"#cbcaca84" }}
               />
               <select
                 value={sortOption}
                 onChange={(e) => setSortOption(e.target.value)}
-                style={{ padding: "8px", borderRadius: "5px" }}
+                style={{ padding: "1rem", borderRadius: "1rem" }}
               >
                 <option value="none">Sort By</option>
                 <option value="high">Score: High → Low</option>
@@ -505,10 +506,10 @@ function Tabs() {
 
       <div className="tab-buttons">
         <button className={activeTab === "interviewee" ? "active" : ""} onClick={() => { setActiveTab("interviewee"); setViewingRecord(null); }}>
-          Interviewee
+          Interviewer
         </button>
         <button className={activeTab === "interviewer" ? "active" : ""} onClick={() => { setActiveTab("interviewer"); setStage("upload"); }}>
-          Interviewer
+          Interviewee
         </button>
       </div>
     </div>
