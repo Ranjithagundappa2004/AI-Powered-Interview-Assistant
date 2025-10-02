@@ -106,7 +106,7 @@ This project is live on Vercel 🚀
 
 GitHub Repo: AI-Powered Interview Assistant Repo
 
-Live Demo: Click Here
+Live Demo: https://ai-powered-interview-assistant-ldc7.vercel.app/
 
 📄 License
 
