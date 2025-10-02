@@ -1,75 +1,85 @@
-🧑‍💻 AI-Powered Interview Assistant
-<p align="center"> <img src="https://img.shields.io/github/stars/Ranjithagundappa2004/AI-Powered-Interview-Assistant?style=social" alt="GitHub Stars" /> <img src="https://img.shields.io/github/forks/Ranjithagundappa2004/AI-Powered-Interview-Assistant?style=social" alt="GitHub Forks" /> <img src="https://img.shields.io/github/license/Ranjithagundappa2004/AI-Powered-Interview-Assistant" alt="License" /> <img src="https://img.shields.io/badge/Build-Passing-brightgreen" alt="Build Status" /> <a href="https://ai-powered-interview-assistant-ldc7.vercel.app/"> <img src="https://img.shields.io/badge/Live%20Demo-Vercel-blue?logo=vercel" alt="Live Demo" /> </a> </p> <p align="center"> <img src="https://img.shields.io/badge/React-18-blue?logo=react" /> <img src="https://img.shields.io/badge/Redux-State%20Management-purple?logo=redux" /> <img src="https://img.shields.io/badge/OpenAI-API-orange?logo=openai" /> <img src="https://img.shields.io/badge/UI-Ant%20Design%20%7C%20Shadcn-lightgrey" /> </p>
-📌 Project Overview
+# 🧑‍💻 AI-Powered Interview Assistant
 
-An AI-powered interview assistant built with React to simplify the interview process for both candidates and interviewers.
+<div align="center">
 
-It allows candidates to upload resumes, engage in AI-driven timed interviews, and provides interviewers with a detailed dashboard of results.
+[![GitHub Stars](https://img.shields.io/github/stars/Ranjithagundappa2004/AI-Powered-Interview-Assistant?style=social)](https://github.com/Ranjithagundappa2004/AI-Powered-Interview-Assistant/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/Ranjithagundappa2004/AI-Powered-Interview-Assistant?style=social)](https://github.com/Ranjithagundappa2004/AI-Powered-Interview-Assistant/network/members)
+[![License](https://img.shields.io/github/license/Ranjithagundappa2004/AI-Powered-Interview-Assistant)](LICENSE)
+![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-blue?logo=vercel)](https://ai-powered-interview-assistant-ldc7.vercel.app/)
 
-🚀 Features
-👤 Interviewee (Candidate)
+</div>
 
-Upload resume (PDF/DOCX).
+<div align="center">
 
-Extracts Name, Email, Phone automatically.
+![React](https://img.shields.io/badge/React-18-blue?logo=react)
+![Redux](https://img.shields.io/badge/Redux-State%20Management-purple?logo=redux)
+![OpenAI](https://img.shields.io/badge/OpenAI-API-orange?logo=openai)
+![UI](https://img.shields.io/badge/UI-Ant%20Design%20%7C%20Shadcn-lightgrey)
 
-Missing details are requested before the interview begins.
+</div>
 
-AI-powered timed interview:
+---
 
-2 Easy → 2 Medium → 2 Hard questions.
+## 📌 Project Overview
+An **AI-powered interview assistant** built with **React** to simplify the interview process for both **candidates** and **interviewers**.  
 
-Timers: Easy (20s), Medium (60s), Hard (120s).
+It allows candidates to upload resumes, engage in AI-driven timed interviews, and provides interviewers with a detailed dashboard of results.  
 
-Auto-submission when time expires.
+---
 
-AI-generated score & summary.
+## 🚀 Features
 
-👨‍💼 Interviewer (Dashboard)
+### 👤 Interviewee (Candidate)
+- Upload resume (**PDF/DOCX**).
+- Extracts **Name, Email, Phone** automatically.  
+- Missing details are requested before the interview begins.  
+- **AI-powered timed interview**:  
+  - 2 Easy → 2 Medium → 2 Hard questions.  
+  - Timers: Easy (20s), Medium (60s), Hard (120s).  
+- Auto-submission when time expires.  
+- AI-generated **score & summary**.  
 
-View candidate list ranked by score.
+### 👨‍💼 Interviewer (Dashboard)
+- View candidate list ranked by score.  
+- Access detailed candidate profiles (resume data, chat history, questions, answers, and scores).  
+- **Search & Sort** support for easy navigation.  
 
-Access detailed candidate profiles (resume data, chat history, questions, answers, and scores).
+### 💾 Data Persistence
+- Local storage ensures data (timers, answers, progress) is saved.  
+- Supports **pause/resume** with a *“Welcome Back”* modal.  
 
-Search & Sort support for easy navigation.
+---
 
-💾 Data Persistence
+## 🛠️ Tech Stack
+- **Frontend:** React  
+- **State Management:** Redux + redux-persist / IndexedDB  
+- **UI Libraries:** Ant Design / shadcn  
+- **AI Integration:** OpenAI API (for Q&A generation + evaluation)  
+- **Resume Parsing:** pdfjs-dist, mammoth  
 
-Local storage ensures data (timers, answers, progress) is saved.
+---
 
-Supports pause/resume with a “Welcome Back” modal.
-
-🛠️ Tech Stack
-
-Frontend: React
-
-State Management: Redux + redux-persist / IndexedDB
-
-UI Libraries: Ant Design / shadcn
-
-AI Integration: OpenAI API (for Q&A generation + evaluation)
-
-Resume Parsing: pdfjs-dist, mammoth
-
-📂 Project Structure
+## 📂 Project Structure
 ├── src/
-│   ├── components/       # Reusable UI components
-│   ├── pages/            # Tabs (Interviewee, Interviewer)
-│   ├── utils/            # Resume parsing & helpers
-│   ├── store/            # Redux store, reducers, persistence
-│   └── App.js            # Root app component
+│ ├── components/ # Reusable UI components
+│ ├── pages/ # Tabs (Interviewee, Interviewer)
+│ ├── utils/ # Resume parsing & helpers
+│ ├── store/ # Redux store, reducers, persistence
+│ └── App.js # Root app component
 ├── public/
 ├── package.json
 └── README.md
 
-⚙️ Installation & Setup
 
-Clone the repo
+---
 
-git clone https://github.com/Ranjithagundappa2004/AI-Powered-Interview-Assistant.git
-cd AI-Powered-Interview-Assistant
+## ⚙️ Installation & Setup
 
-
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/Ranjithagundappa2004/AI-Powered-Interview-Assistant.git
+   cd AI-Powered-Interview-Assistant
 Install dependencies
 
 npm install
@@ -97,8 +107,6 @@ This project is live on Vercel 🚀
 GitHub Repo: AI-Powered Interview Assistant Repo
 
 Live Demo: Click Here
-
-
 
 📄 License
 
