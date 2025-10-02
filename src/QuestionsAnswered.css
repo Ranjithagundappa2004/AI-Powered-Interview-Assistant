@@ -1,0 +1,225 @@
+/* QuestionsAnswered.css
+   Clean, modern styling for the QuestionsAnswered review page.
+   Drop into src/ and import from QuestionsAnswered.js
+*/
+
+:root{
+  --bg: #ffffff;
+  --muted: #6b7280;
+  --accent: #5b8cff;
+  --accent-2: #7fd1ff;
+  --success: #10b981;
+  --danger: #ef4444;
+  --card-border: #e6e9ef;
+  --card-bg: #fbfbfd;
+  --soft: #f6f8fb;
+  --radius: 10px;
+  --gap: 12px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Container */
+.questions-answered {
+  max-width: 980px;
+  margin: 18px auto;
+  padding: 18px;
+  background: var(--bg);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(18, 25, 38, 0.04);
+  color: #111827;
+}
+
+/* Header row */
+.questions-answered > div:first-child {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.questions-answered h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.questions-answered button {
+  cursor: pointer;
+}
+
+/* Action buttons in header */
+.questions-answered .header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Standard buttons */
+.btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--card-border);
+  background: linear-gradient(90deg, #fff, #fbfdff);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.btn:active { transform: translateY(1px); }
+
+/* Primary / Copy */
+.btn-primary {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: white;
+  border: none;
+}
+
+.btn-secondary {
+  background: #fff;
+  color: var(--accent);
+  border: 1px solid rgba(91,140,255,0.18);
+}
+
+/* Question card */
+.qa-card {
+  margin-top: 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  padding: 14px;
+  transition: box-shadow .12s ease, transform .08s ease;
+}
+
+.qa-card:hover {
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  transform: translateY(-2px);
+}
+
+.qa-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.qa-question {
+  font-weight: 600;
+  color: #0b1220;
+  font-size: 0.99rem;
+}
+
+.qa-meta {
+  text-align: right;
+  min-width: 110px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+/* Answer area */
+.qa-answers {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.answer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: white;
+  border: 1px solid #f0f2f6;
+}
+
+.answer-left { display:flex; gap:10px; align-items:center; }
+
+.answer-badge {
+  min-width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: 700;
+  color: #0b1220;
+  background: #f8fbff;
+  border: 1px solid #eef6ff;
+}
+
+/* Selected / Correct / Wrong labels */
+.answer-status {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.answer-status.correct {
+  background: rgba(16,185,129,0.12);
+  color: var(--success);
+  border: 1px solid rgba(16,185,129,0.14);
+}
+
+.answer-status.wrong {
+  background: rgba(239,68,68,0.06);
+  color: var(--danger);
+  border: 1px solid rgba(239,68,68,0.08);
+}
+
+/* Solution box */
+.solution-box {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  background: linear-gradient(180deg,#ffffff,#fbfdff);
+  border: 1px solid #eef3ff;
+  color: #0f172a;
+}
+
+/* Small muted text */
+.small-muted {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+/* Utility layout for bottom area inside a card */
+.qa-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Time badge */
+.time-badge {
+  background: #fff;
+  color: var(--muted);
+  border-radius: 8px;
+  padding: 6px 8px;
+  border: 1px solid #eef2f7;
+  font-weight: 600;
+  font-size: 0.86rem;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .questions-answered { padding: 12px; margin: 12px; }
+  .qa-meta { text-align: left; min-width: auto; margin-top: 8px; }
+  .qa-top { flex-direction: column; align-items: stretch; }
+  .qa-bottom { flex-direction: column; align-items: stretch; gap: 8px; }
+}
+
+/* Last small tweaks */
+.questions-answered .extracted-details p {
+  margin: 6px 0;
+  color: #0b1220;
+  font-weight: 600;
+}
